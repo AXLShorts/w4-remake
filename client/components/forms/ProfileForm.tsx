@@ -26,6 +26,7 @@ const ProfileForm = ({ user }: { user: any }) => {
       confirmPassword: "",
       age: user.age,
       gender: user.gender,
+      role: user.role,
     },
   });
 
@@ -41,6 +42,7 @@ const ProfileForm = ({ user }: { user: any }) => {
       ...values,
       age: values.age ? parseInt(values.age, 10) : undefined,
     };
+
     await update(formData).then(() => {
       console.log("Profile updated");
       router.push("/profile");
@@ -121,6 +123,17 @@ const ProfileForm = ({ user }: { user: any }) => {
             />
           </div>
         </div>
+
+        <ProfileFormSelect
+          name="role"
+          label="Role"
+          placeholder="Select Role"
+          formControl={form.control}
+          options={[
+            { value: "USER", label: "User" },
+            { value: "ADMIN", label: "Admin" },
+          ]}
+        />
 
         <Button type="submit" disabled={!isDirty}>
           Update

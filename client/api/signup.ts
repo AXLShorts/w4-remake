@@ -9,6 +9,7 @@ const Signup = async (formData: {
   age: any;
   gender: string;
   profilePicture: string;
+  role: string;
 }) => {
   try {
     const response = await axios.post(
@@ -20,6 +21,7 @@ const Signup = async (formData: {
         age: formData.age,
         gender: formData.gender,
         profilePicture: formData.profilePicture,
+        role: formData.role,
       },
       {
         withCredentials: true,

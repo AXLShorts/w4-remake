@@ -17,6 +17,7 @@ export const signUpFormSchema: any = z
       .min(18, "You must be at least 18 years old to sign up.")
       .max(120, "You must be at most 120 years old to sign up."),
     gender: z.string().regex(/(male|female)/, "Invalid gender."),
+    role: z.string().regex(/(USER|ADMIN)/, "Invalid role."),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",

@@ -7,6 +7,7 @@ const update = async (formData: {
   newPassword: any;
   age: any;
   gender: any;
+  role: string;
 }) => {
   try {
     await axios.post(
@@ -18,6 +19,7 @@ const update = async (formData: {
         newPassword: formData.newPassword,
         age: formData.age,
         gender: formData.gender,
+        role: formData.role,
       },
       {
         withCredentials: true,

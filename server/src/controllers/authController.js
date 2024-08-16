@@ -5,7 +5,8 @@ import { setCookie } from "../utils/setCookie.js";
 import cookie from "cookie";
 export const signup = async (req, res) => {
   try {
-    const { email, password, name, age, gender, profilePicture } = req.body;
+    const { email, password, name, age, gender, profilePicture, role } =
+      req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await prisma.user.create({
@@ -16,6 +17,7 @@ export const signup = async (req, res) => {
         age,
         gender,
         profilePicture,
+        role,
       },
     });
 
@@ -59,6 +61,7 @@ export const updateProfile = async (req, res) => {
       age,
       gender,
       profilePicture,
+      role,
     } = req.body;
 
     // Find the user by email
@@ -77,6 +80,7 @@ export const updateProfile = async (req, res) => {
           age,
           gender,
           profilePicture,
+          role,
         },
       });
     } else if (await bcrypt.compare(oldPassword, user.password)) {
@@ -90,6 +94,7 @@ export const updateProfile = async (req, res) => {
           age,
           gender,
           profilePicture,
+          role,
         },
       });
     }

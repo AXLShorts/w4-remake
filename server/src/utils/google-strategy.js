@@ -31,7 +31,7 @@ passport.use(
               email: profile._json.email,
               password: hashedPassword,
               age: 18,
-              gender: "Male",
+              gender: "male",
               role: "USER",
               profilePicture: profile._json.picture,
             },

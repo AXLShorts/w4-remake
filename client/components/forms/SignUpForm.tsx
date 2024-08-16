@@ -29,6 +29,7 @@ const SignupForm = () => {
       confirmPassword: "",
       age: undefined,
       gender: "",
+      role: "",
     },
   });
 
@@ -120,6 +121,16 @@ const SignupForm = () => {
           options={[
             { value: "male", label: "Male" },
             { value: "female", label: "Female" },
+          ]}
+        />
+        <SignupFormSelect
+          name="role"
+          label="Role"
+          placeholder="Select Role"
+          formControl={form.control}
+          options={[
+            { value: "USER", label: "User" },
+            { value: "ADMIN", label: "Admin" },
           ]}
         />
         <Button type="submit">Signup</Button>

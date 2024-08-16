@@ -21,6 +21,10 @@ export const updateFormSchema: any = z
       .string()
       .regex(/(male|female)/, "Invalid gender.")
       .optional(),
+    role: z
+      .string()
+      .regex(/(USER|ADMIN)/, "Invalid role.")
+      .optional(),
   })
   .refine(
     (data) => {
