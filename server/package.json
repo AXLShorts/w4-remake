@@ -5,7 +5,8 @@
   "scripts": {
     "prisma:generate": "prisma generate",
     "start": "node api/index.js",
-    "dev": "nodemon api/index.js"
+    "dev": "nodemon api/index.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
